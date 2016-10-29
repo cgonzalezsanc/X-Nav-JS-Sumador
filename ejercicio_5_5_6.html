@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+     <style type="text/css" media="screen">
+       body{
+         padding:0;
+         margin:50px auto;
+         text-align:center;
+         font:100% Verdana;
+       }
+       h1 {
+         font-size: 1.5em;
+       }
+       #res {
+         font-size: 2em;
+       }
+     </style>
+     <title>Sumador JavaScript muy sencillo</title>
+   </head>
+   <body>
+     <h1>Sumador JavaScript muy sencillo</h1>
+	 <p>Adder...<span id='op'>5+3</span>
+	 <span id="res"></span> 
+	 <a href="javascript:sumar('op','res')">Add!</a></p>
+	 <a href="javascript:sumar_aleatorio('op','res')">Suma aleatoria</a></p>
+     <p id="another"><a href="javascript:document.location.reload()">Recargar pagina</a></p>
+     <script type="text/javascript" charset="utf-8">
+		function changer (id,txt) {
+			var elemento = document.getElementById(id);
+			elemento.innerHTML = txt;
+		}
+		function sumar (id,id_res) {
+			var elemento = document.getElementById(id);
+			var operandos = elemento.innerHTML.split('+');
+			var resultado = parseInt(operandos[0]) + parseInt(operandos[1]);
+			changer(id_res, '=' + resultado);
+		}
+		function sumar_aleatorio(id,id_res) {
+			var operando1 = Math.floor(Math.random() * 10);
+			var operando2 = Math.floor(Math.random() * 10);
+			changer(id, operando1 + '+' + operando2);
+			/*var resultado = operando1+operando2;
+			changer(id_res, '=' + resultado);*/
+		}
+	</script>
+   </body>
+</html>
